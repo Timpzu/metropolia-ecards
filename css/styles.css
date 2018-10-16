@@ -1,3 +1,124 @@
 body {
   font-family: sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+}
+.frame {
+  align-items: center;
+  /* background: #0c0c0c; */
+  background-image: url('../img/talvimaisema.jpg');
+  background-size: cover;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+.frame-window {
+  height: 480px;
+  width: 640px;
+}
+.flip-card {
+  perspective: 1000px;
+}
+@keyframes cardFlip {
+  50% {transform: rotateY(90deg) scale(0.7, 0.7);}
+  to {transform: rotateY(180deg) scale(1, 1);}
+}
+.flip-card-inner {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: cardFlip;
+  animation-timing-function: linear;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+.flip-card-front, .flip-card-back {
+  /* backface-visibility: hidden; */
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+.postcard {
+  background-image: url('../img/loppukuva.jpg');
+  background-size: cover;
+  color: #000F55;
+  font-family: 'Satisfy', cursive;
+  height: 100%;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+.postcard .message,
+.postcard .sender,
+.postcard .receiver {
+  position: absolute;
+  width: 250px;
+}
+.postcard .message {
+  font-size: 36px;
+  left: 32px;
+  top: 92px;
+}
+.postcard .sender {
+  bottom: 52px;
+  font-size: 28px;
+  left: 32px;
+}
+.postcard .receiver {
+  font-size: 28px;
+  left: 360px;
+  top: 200px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+.column-3 {
+  padding: 32px;
+  width: 30%;
+}
+input[type=text], select, textarea {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  margin-top: 6px;
+  padding: 12px;
+  width: 100%;
+}
+input[type=submit] {
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 12px 20px;
+}
+input[type=submit]:hover {
+  background-color: #eee;
+}
+@keyframes fadeIn {
+  to {opacity: 1;}
+}
+.fade-in {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: fadeIn;
+  animation-timing-function: ease-in;
+  opacity: 0;
+}
+.is-paused {
+  animation-play-state: paused;
 }
