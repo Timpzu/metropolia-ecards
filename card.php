@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="public/css/styles.css" type="text/css">
   </head>
   <body>
-    <main class="frame">
+    <main class="frame frame-bg">
       <div class="frame-window flip-card">
         <div id="frame-inner-flip-card" class="flip-card-inner is-paused">
           <video id="animation" class="flip-card-front" width="640" height="480" onended="revealPostcard()" autoplay muted>

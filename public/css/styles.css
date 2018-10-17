@@ -1,19 +1,84 @@
 body {
-  font-family: sans-serif;
-  height: 100vh;
   margin: 0;
   padding: 0;
-  width: 100vw;
+
+}
+p, input, figcaption {
+  color: #000;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Playfair Display', sans-serif;
+}
+h1 {
+  color: #000;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: 'Playfair Display SC', serif;
+  font-size: 3em;
+  font-weight: 400;
+}
+p {
+  line-height: 1.5em;
+}
+.main-header {
+  margin: 0 auto;
+  text-align: center;
+}
+figure {
+  margin: 24px auto;
+}
+figcaption {
+  font-size: 0.75em;
+  font-weight: bold;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: center;
+}
+.column-half {
+  width: 560px;
+}
+.form-centered {
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+input {
+  border: none;
+  font-size: 1em;
+  margin-bottom: 16px;
+  margin-top: 6px;
+  padding: 16px;
+}
+input[type=text], select, textarea {
+  border-bottom: 1px dashed #ddd;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 49.5%;
+}
+input[type=text]:nth-of-type(3) {
+  display: block;
+  width: 100%;
+}
+input[type=submit] {
+  color: #000F55;;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+input[type=submit]:hover {
+  background-color: #eee;
 }
 .frame {
   align-items: center;
-  /* background: #0c0c0c; */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+.frame-bg {
   background-image: url('../img/talvimaisema.jpg');
   background-size: cover;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  width: 100%;
 }
 .frame-window {
   height: 480px;
@@ -37,17 +102,12 @@ body {
   transform-style: preserve-3d;
   width: 100%;
 }
-
-/* .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-} */
 .flip-card-front, .flip-card-back {
   /* backface-visibility: hidden; */
   height: 100%;
   position: absolute;
   width: 100%;
 }
-/* Style the back side */
 .flip-card-back {
   transform: rotateY(180deg);
 }
@@ -81,32 +141,6 @@ body {
   font-size: 28px;
   left: 360px;
   top: 200px;
-}
-.row {
-  display: flex;
-  flex-direction: row;
-  height: 100%;
-}
-.column-3 {
-  padding: 32px;
-  width: 30%;
-}
-input[type=text], select, textarea {
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-bottom: 16px;
-  margin-top: 6px;
-  padding: 12px;
-  width: 100%;
-}
-input[type=submit] {
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 12px 20px;
-}
-input[type=submit]:hover {
-  background-color: #eee;
 }
 @keyframes fadeIn {
   to {opacity: 1;}
