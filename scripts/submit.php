@@ -2,14 +2,14 @@
 include 'database.php';
 
 // prepare and bind
-$stmt = $mysqli->prepare("INSERT INTO cards (serialnum, sender, receiver, message) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $serialnum , $sender, $receiver, $message);
+$stmt = $mysqli->prepare("INSERT INTO cards (reference, sender, receiver, message) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssss", $reference , $sender, $receiver, $message);
 
 // define variables and set to empty values
 $senderErr = $receiverErr = $messageErr = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $serialnum = uniqid(mt_rand());
+  $reference = uniqid('', true);
   if (empty($_POST['sender'])) {
     $senderErr = 'Sender is required';
   } else {
@@ -41,7 +41,7 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-$data = array('lastID'=>$last_id, 'lastSerial'=>$serialnum);
+$data = array('lastID'=>$last_id, 'lastSerial'=>$reference);
 echo json_encode($data);
 
 $stmt->close();

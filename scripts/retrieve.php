@@ -12,9 +12,9 @@ function curPageURL() {
   }
   return $pageURL;
 }
-$urlPathId = trim(parse_url(curPageURL(), PHP_URL_QUERY), 'id=');
+$urlPathId = trim(parse_url(curPageURL(), PHP_URL_QUERY), 'ref=');
 
-$sql = "SELECT * FROM cards WHERE serialnum='$urlPathId'";
+$sql = "SELECT * FROM cards WHERE reference='$urlPathId'";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_assoc($result);
 

@@ -1,19 +1,18 @@
-body {
-  margin: 0;
-  padding: 0;
-
-}
-p, input, figcaption {
+* {
   color: #000;
   color: rgba(0, 0, 0, 0.87);
   font-family: 'Playfair Display', sans-serif;
 }
+body {
+  margin: 0;
+  padding: 0;
+}
 h1 {
-  color: #000;
-  color: rgba(0, 0, 0, 0.87);
   font-family: 'Playfair Display SC', serif;
   font-size: 3em;
-  font-weight: 400;
+}
+h2 {
+  margin-left: 16px;
 }
 p {
   line-height: 1.5em;
@@ -60,13 +59,62 @@ input[type=text]:nth-of-type(3) {
   width: 100%;
 }
 input[type=submit] {
-  color: #000F55;;
   background: none;
+  color: #000F55;
   cursor: pointer;
   font-weight: 600;
 }
 input[type=submit]:hover {
   background-color: #eee;
+}
+.modal {
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  height: 100%;
+  left: 0;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+.modal-content {
+  background-color: #fff;
+  border: 1px solid #888;
+  box-sizing: border-box;
+  margin: 15% auto;
+  padding: 20px;
+  width: 640px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: 700;
+}
+.close:hover,
+.close:focus {
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+}
+.shareable-link-container {
+  background: #f5f6fa;
+  border: solid #ddd 1px;
+  box-sizing: border-box;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  padding: 12px;
+  width: 100%;
+}
+button {
+  background: none;
+  border: none;
+  color: #000F55;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
 }
 .frame {
   align-items: center;
@@ -77,7 +125,8 @@ input[type=submit]:hover {
   width: 100vw;
 }
 .frame-bg {
-  background-image: url('../img/talvimaisema.jpg');
+  background: #111;
+  /* background-image: url(../img/talvimaisema.jpg); */
   background-size: cover;
 }
 .frame-window {
@@ -103,7 +152,7 @@ input[type=submit]:hover {
   width: 100%;
 }
 .flip-card-front, .flip-card-back {
-  /* backface-visibility: hidden; */
+  backface-visibility: hidden;
   height: 100%;
   position: absolute;
   width: 100%;
@@ -114,12 +163,14 @@ input[type=submit]:hover {
 .postcard {
   background-image: url('../img/loppukuva.jpg');
   background-size: cover;
-  color: #000F55;
-  font-family: 'Satisfy', cursive;
   height: 100%;
   overflow: auto;
   position: relative;
   width: 100%;
+}
+.postcard span {
+  color: #000F55;
+  font-family: 'Satisfy', cursive;
 }
 .postcard .message,
 .postcard .sender,

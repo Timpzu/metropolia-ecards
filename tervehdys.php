@@ -12,8 +12,8 @@
     <main class="frame frame-bg">
       <div class="frame-window flip-card">
         <div id="frame-inner-flip-card" class="flip-card-inner is-paused">
-          <video id="animation" class="flip-card-front" width="640" height="480" onended="revealPostcard()" autoplay muted>
-            <source src="public/video/kortti.mp4" type="video/mp4">
+          <video id="animation" class="flip-card-front" width="640" height="480" onended="revealPostcard()" controls>
+            <source src="public/video/lapsuuden-haave.mp4" type="video/mp4">
           </video>
           <article id="postcard-template" class="postcard flip-card-back">
             <div id="input-placeholder" class="fade-in is-paused">
