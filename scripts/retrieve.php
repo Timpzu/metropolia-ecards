@@ -14,7 +14,7 @@ function curPageURL() {
 }
 $urlPathId = trim(parse_url(curPageURL(), PHP_URL_QUERY), 'id=');
 
-$sql = "SELECT * FROM cards WHERE id=$urlPathId";
+$sql = "SELECT * FROM cards WHERE serialnum='$urlPathId'";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_assoc($result);
 

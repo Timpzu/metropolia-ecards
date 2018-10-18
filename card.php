@@ -1,5 +1,4 @@
 <?php include 'scripts/retrieve.php'; ?>
-
 <!DOCTYPE html>
 <html>
   <head>

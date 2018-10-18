@@ -34,11 +34,15 @@
               <input id="fmessage" type="text" name="message" required="required" placeholder="Viesti">
             <input type="submit" name="" value="Jaettava linkki">
           </form>
+          <section id="share-options">
+
+          </section>
         </section>
       </div>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+    var lasID;
       $(document).ready(function(){
         $('#sending-info-form').on('submit', function(e){
           e.preventDefault();
@@ -49,17 +53,19 @@
             type: "POST",
             url: 'scripts/submit.php',
             data: {sender: sender, receiver: receiver, message: message},
+            dataType: 'json',
+            success: function(response) {
+              lastID = response.lastID;
+              lastSerial = response.lastSerial;
+              const origin = window.location.origin;
+              let shareableURL =
+              '<a href="' + origin + '/metropolia-joulukortti/card.php' + '?id=' + lastSerial + '">'
+               + origin + '/metropolia-joulukortti/card.php' + '?id=' + lastSerial + '</a> <br />';
+              $('#share-options').append(shareableURL);
+            }
           });
         });
       });
-      // $(document).on('submit', function() {
-      //   const origin = window.location.origin;
-      //   let randomId = 48;
-      //   let shareableURL =
-      //   '<a href="' + origin + '/metropolia-joulukortti/card.php' + '?id=' + randomId + '">'
-      //    + origin + '/metropolia-joulukortti/card.php' + '?id=' + randomId + '</a>';
-      //   $('#share-options').append(shareableURL);
-      // });
     </script>
   </body>
 </html>
