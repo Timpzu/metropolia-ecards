@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="public/css/styles.css" type="text/css">
   </head>
   <body>
-    <main class="frame frame-bg">
-      <div class="frame-window flip-card">
-        <div id="frame-inner-flip-card" class="flip-card-inner is-paused">
+    <main>
+      <div class="flip-card">
+        <div id="inner-flip-card" class="flip-card-inner is-paused">
           <video id="animation" class="flip-card-front" width="640" height="480" onended="revealPostcard()" controls>
             <source src="public/video/lapsuuden-haave.mp4" type="video/mp4">
           </video>
@@ -28,13 +28,13 @@
     <script type="text/javascript">
       const postcardTemplate = document.getElementById('postcard-template');
       const inputPlaceholder = document.getElementById('input-placeholder');
-      const frameInnerFlipCard = document.getElementById('frame-inner-flip-card');
+      const innerFlipCard = document.getElementById('inner-flip-card');
       const animation = document.getElementById('animation');
 
       const revealPostcard = () => {
         // postcardTemplate.style.display='block';
         // animation.style.display='none';
-        frameInnerFlipCard.classList.remove('is-paused');
+        innerFlipCard.classList.remove('is-paused');
         inputPlaceholder.classList.remove('is-paused');
       }
     </script>
