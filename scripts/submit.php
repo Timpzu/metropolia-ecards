@@ -2,11 +2,11 @@
 include 'database.php';
 
 // prepare and bind
-$stmt = $mysqli->prepare("INSERT INTO cards (ref, user, sender, receiver, message) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $ref, $user, $sender, $receiver, $message);
+$stmt = $mysqli->prepare("INSERT INTO cards (ref, user, sender, receiver, message, animation) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $ref, $user, $sender, $receiver, $message, $animation);
 
 // define variables and set to empty values
-$senderErr = $receiverErr = $messageErr = $userErr = '';
+$senderErr = $receiverErr = $messageErr = $userErr = $animationErr = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $ref = uniqid('', true);
@@ -17,15 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // check if name only contains letters and whitespace
    if (!preg_match('/^[a-zA-Z ]*$/', $sender)) {
      $senderErr = 'Only letters and white space allowed';
-   }
-  }
-  if (empty($_POST['user'])) {
-    $userErr = 'User is required';
-  } else {
-    $user = test_input($_POST['user']);
-    // check if name only contains letters and whitespace
-   if (!preg_match('/^[a-zA-Z ]*$/', $user)) {
-     $userErr = 'Only letters and white space allowed';
    }
   }
   if (empty($_POST['receiver'])) {
@@ -41,6 +32,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   } else {
     $message = test_input($_POST['message']);
   }
+  $user = $_POST['user'];
+  $animation = $_POST['animation'];
+  
   $stmt->execute();
   $last_id = $mysqli->insert_id;
 }

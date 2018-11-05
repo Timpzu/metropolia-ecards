@@ -43,5 +43,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### CAS ###
+scripts/CAS
+CAS.php
+login.php
 
 # End of https://www.gitignore.io/api/git,macos
