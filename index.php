@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Metropolian joulukortti</title>
+    <title>Uusi joulutervehdys - Metropolian joulutervehdys</title>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC|Playfair+Display:400,700" rel="stylesheet">
     <link rel="stylesheet" href="public/css/foundation.min.css" type="text/css">
     <link rel="stylesheet" href="public/css/styles.css" type="text/css">
@@ -21,22 +21,26 @@
               lähetettiin noin 600 000 kirjettä ympäri maailmaa.
             </p>
           </article>
+          <article id="form-area" aria-aria-labelledby="form-area-heading">
+            <form id="sending-info-form" method="post">
+              <input id="fuser" type="text" name="user" required="required" placeholder="Käyttäjä">
+              <input id="fsender" type="text" name="sender" required="required" placeholder="Lähettäjä">
+              <input id="freceiver" type="text" name="receiver" required="required" placeholder="Vastaanottaja">
+              <input id="fmessage" type="text" name="message" required="required" placeholder="Viesti">
+              <input type="submit" value="Jaettava linkki">
+            </form>
+          </article>
+        </section>
+        <section class="cell medium-6">
           <figure>
             <figcaption>Esikatselu:</figcaption>
             <video width="100%" controls>
               <source src="public/video/lapsuuden-haave.mp4" type="video/mp4">
             </video>
           </figure>
-          <article id="form-area" class="form-centered" aria-aria-labelledby="form-area-heading">
-            <form id="sending-info-form" method="post">
-                <input id="fsender" type="text" name="sender" required="required" placeholder="Lähettäjä">
-                <input id="freceiver" type="text" name="receiver" required="required" placeholder="Vastaanottaja">
-                <input id="fmessage" type="text" name="message" required="required" placeholder="Viesti">
-              <input type="submit" name="" value="Jaettava linkki">
-            </form>
-          </article>
         </section>
       </div>
+      <!-- SOCIAL MEDIA MODAL -->
       <div id="share-options" class="modal">
         <section id="share-options-content" class="modal-content" aria-labelledby="share-options-content-heading">
           <span class="close page-reload">&times;</span>
@@ -48,7 +52,7 @@
               <a class="a2a_button_email"></a>
             </div>
           <input id="shareable-link" class="shareable-link-container" type="textarea" value=" " readonly>
-          <button onclick="copyLink()">Kopioi osoite</button>
+          <button class="button" onclick="copyLink()">Kopioi osoite</button>
         </section>
       </div>
     </main>

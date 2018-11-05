@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Metropolian joulukortti</title>
+    <title>Metropolian joulutervehdys</title>
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link rel="stylesheet" href="public/css/styles.css" type="text/css">
   </head>
@@ -26,12 +26,12 @@
       </div>
     </main>
     <script type="text/javascript">
-      const postcardTemplate = document.getElementById('postcard-template');
-      const inputPlaceholder = document.getElementById('input-placeholder');
-      const innerFlipCard = document.getElementById('inner-flip-card');
-      const animation = document.getElementById('animation');
+      var postcardTemplate = document.getElementById('postcard-template');
+      var inputPlaceholder = document.getElementById('input-placeholder');
+      var innerFlipCard = document.getElementById('inner-flip-card');
+      var animation = document.getElementById('animation');
 
-      const revealPostcard = () => {
+      var revealPostcard = () => {
         // postcardTemplate.style.display='block';
         // animation.style.display='none';
         innerFlipCard.classList.remove('is-paused');

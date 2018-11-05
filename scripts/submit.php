@@ -2,14 +2,14 @@
 include 'database.php';
 
 // prepare and bind
-$stmt = $mysqli->prepare("INSERT INTO cards (reference, sender, receiver, message) VALUES (?, ?, ?, ?)");
-$stmt->bind_param("ssss", $reference , $sender, $receiver, $message);
+$stmt = $mysqli->prepare("INSERT INTO cards (ref, user, sender, receiver, message) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $ref, $user, $sender, $receiver, $message);
 
 // define variables and set to empty values
-$senderErr = $receiverErr = $messageErr = '';
+$senderErr = $receiverErr = $messageErr = $userErr = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $reference = uniqid('', true);
+  $ref = uniqid('', true);
   if (empty($_POST['sender'])) {
     $senderErr = 'Sender is required';
   } else {
@@ -17,6 +17,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // check if name only contains letters and whitespace
    if (!preg_match('/^[a-zA-Z ]*$/', $sender)) {
      $senderErr = 'Only letters and white space allowed';
+   }
+  }
+  if (empty($_POST['user'])) {
+    $userErr = 'User is required';
+  } else {
+    $user = test_input($_POST['user']);
+    // check if name only contains letters and whitespace
+   if (!preg_match('/^[a-zA-Z ]*$/', $user)) {
+     $userErr = 'Only letters and white space allowed';
    }
   }
   if (empty($_POST['receiver'])) {
@@ -41,7 +50,7 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
-$data = array('lastID'=>$last_id, 'lastSerial'=>$reference);
+$data = array('lastID'=>$last_id, 'lastSerial'=>$ref);
 echo json_encode($data);
 
 $stmt->close();

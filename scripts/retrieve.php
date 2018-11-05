@@ -14,7 +14,7 @@ function curPageURL() {
 }
 $urlPathId = trim(parse_url(curPageURL(), PHP_URL_QUERY), 'ref=');
 
-$sql = "SELECT * FROM cards WHERE reference='$urlPathId'";
+$sql = "SELECT * FROM cards WHERE ref='$urlPathId'";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_assoc($result);
 

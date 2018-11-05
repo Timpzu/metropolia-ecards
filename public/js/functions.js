@@ -3,13 +3,14 @@ $(document).ready(function(){
 
   $('#sending-info-form').on('submit', function(e){
     e.preventDefault();
+    var user = $('#fuser').val();
     var sender = $('#fsender').val();
     var receiver = $('#freceiver').val();
     var message = $('#fmessage').val();
     $.ajax({
       type: "POST",
       url: 'scripts/submit.php',
-      data: {sender: sender, receiver: receiver, message: message},
+      data: {user: user, sender: sender, receiver: receiver, message: message},
       dataType: 'json',
       success: function(response) {
         var lastSerial = response.lastSerial;

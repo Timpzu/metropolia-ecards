@@ -22,7 +22,7 @@ figure {
   font-family: 'Playfair Display', sans-serif;
   font-weight: bold;
 }
-button {
+/* button {
   background: none;
   border: none;
   color: #000F55;
@@ -30,13 +30,10 @@ button {
   font-family: 'Playfair Display', sans-serif;
   font-size: 1em;
   font-weight: 600;
-}
+} */
 /* DASHBOARD */
-.card-thumbnail {
+.card-preview-thumbnail {
   background: #eee;
-  padding-top: 100%;
-  position: relative;
-  width: 100%
 }
 /* SOCIAL MEDIA MODAL */
 .modal {
