@@ -1,4 +1,4 @@
-<?php include 'scripts/retrieve_all.php'; ?>
+<?php include 'scripts/collect.php'; ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -8,7 +8,7 @@
     <link href="public/css/normalize.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display+SC|Playfair+Display:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="public/css/styles2.css" rel="stylesheet">
+    <link href="public/css/styles.css" rel="stylesheet">
   </head>
   <body>
     <main class="container">

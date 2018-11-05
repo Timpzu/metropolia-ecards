@@ -1,7 +1,10 @@
 <?php
   include 'database.php';
+  include 'login.php';
 
-  $sql = "SELECT * FROM cards WHERE user='timosl'";
+  $user = phpCAS::getUser();
+
+  $sql = "SELECT * FROM cards WHERE user='$user'";
   $result = $mysqli->query($sql);
 
   function template( $file, $args ){
