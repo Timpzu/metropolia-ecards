@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
     <link href="public/css/lity.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/styles0.css" type="text/css">
+    <link rel="stylesheet" href="public/css/styles.css" type="text/css">
   </head>
   <body>
     <div class="wrapper">

@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
     <link href="public/css/lity.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/styles0.css" type="text/css">
+    <link rel="stylesheet" href="public/css/styles.css" type="text/css">
   </head>
   <body>
     <div class="wrapper">
@@ -55,6 +55,23 @@
           </form>
         </section>
       </main>
+    </div>
+    <!-- MODAL -->
+    <div id="share-options" class="modal">
+      <div class="modal-wrapper">
+        <div class="modal-content">
+          <section class="modal-content-preview">
+            <h2>JAA KORTTI YSTÄVÄLLESI</h2>
+            <video src="lapsuuden-haave.mp4" controls width="100%;"></video>
+            <section class="modal-social-options">
+              <h3>Kopioi linkki tai jaa se somessa</h3>
+              <input id="shareable-link" class="card-url" type="text" value=" " readonly>
+            </section>
+            <a class="button page-reload" type="button" name="button">Tee uusi</a>
+            <a href="index.php" class="button" name="button">Palaa etusivulle</a>
+          </section>
+        </div>
+      </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async src="https://static.addtoany.com/menu/page.js"></script>

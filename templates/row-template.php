@@ -4,7 +4,7 @@
     <i class="material-icons gallery-play-button">play_circle_filled</i>
     <img src="public/img/lapsuuden-haave.jpg" width="100%"/>
   </a>
-  <input class="gallery-card-url" type="text" value="<?php print $ref; ?>" readonly>
+  <input class="card-url" type="text" value="<?php print $ref; ?>" readonly>
   <div class="gallery-some-icons">
     <span>Jaa:</span>
     <a href="#">Facebook,</a>

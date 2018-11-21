@@ -1,7 +1,203 @@
-/* SOCIAL MEDIA MODAL */
+body {
+  color: #454546;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+.wrapper {
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 24px;
+  width: 960px;
+}
+.grid-container {
+  display: grid;
+  grid-gap: 24px 24px;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+}
+h1 {
+  background-color: #f15c22;
+  color: #fff;
+  font-size: 48px;
+  font-weight: 300;
+  margin: 72px 0;
+  margin-left: -18px;
+  padding: 18px;
+}
+h2 {
+  color: #323333;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  margin: 36px 0;
+  text-transform: uppercase;
+}
+h3 {
+  color: #323333;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  margin: 27px 0;
+  text-transform: uppercase;
+}
+p {
+  line-height: 1.5em;
+  margin: 27px 0;
+}
+a {
+ color: #444545;
+ font-weight: bold;
+}
+input[type=text],
+textarea {
+  border: 1px #ced1d1 solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #454546;
+  font-size: 16px;
+  margin: 6px 0 6px 0;
+  padding: 12px;
+  resize: none;
+  width: 100%;
+}
+form p {
+  color: #8e9191;
+  font-size: 16px;
+}
+.button,
+input[type=submit],
+button {
+  background: #f9f9fa;
+  border: 1px #ced1d1 solid;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+  box-sizing: border-box;
+  color: #454546;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 8px;
+  padding: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+::placeholder {
+  color: #8e9191;
+}
+.introductory-text-block {
+  grid-column: span 7;
+}
+.grid-placeholder {
+  grid-column-end: -1;
+}
+.gallery-card {
+  grid-column: span 4;
+}
+.gallery-card h3 {
+  margin-top: 0px;
+}
+.gallery-card a {
+  line-height: 0;
+}
+input.card-url {
+  color: #8e9191;
+  margin: 8px auto;
+  text-align: center;
+}
+.gallery-some-icons {
+  color: #444545;
+  font-size: 12px;
+  margin: 0 0 18px 0;
+  text-align: center;
+}
+.gallery-card-thumbnail {
+  background: #eee;
+  border-left: 6px #fec92f solid;
+  box-sizing: border-box;
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.gallery-play-button {
+  color: #fff;
+  color: rgba(255,255,255, 0.96);
+  font-size: 500%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.gallery-card:nth-of-type(2n) .gallery-card-thumbnail {
+  border-left: 4px #569442 solid;
+}
+.gallery-card:nth-of-type(3n) .gallery-card-thumbnail {
+  border-left: 4px #d31773 solid;
+}
+.gallery-card:nth-of-type(4n) .gallery-card-thumbnail {
+  border-left: 4px #1884c7 solid;
+}
+.gallery-button-container {
+  grid-column: span 4;
+}
+.gallery-button {
+  background: #f9f9fa;
+  border: 1px #ced1d1 solid;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
+  box-sizing: border-box;
+  display: block;
+  margin-top: 47px;
+  padding: 66.6% 0 0 0;
+  position: relative;
+  width: 100%;
+}
+.gallery-button span {
+  bottom: 50%;
+  color: #8e9191;
+  font-size: 24px;
+  font-weight: bold;
+  left: 50%;
+  letter-spacing: 0.025rem;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translate(-50%,50%);
+  width: 100%;
+}
+.gallery-button:hover {
+  bottom: 2px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+.create-card-form {
+  grid-column: span 6;
+}
+.create-card-form h3 {
+  margin-top: 0;
+}
+.create-card-form label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 0;
+}
+.create-card-form input[type=text],
+.create-card-form textarea {
+  box-sizing: border-box;
+  margin: 6px 0 6px 0;
+  resize: none;
+  width: 100%;
+}
+.create-card-form textarea {
+  height: 108px;
+}
+.form-previews {
+  grid-gap: 12px;
+  margin: 6px auto;
+  width: 100%;
+}
 .modal {
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.5);
+  background: #000;
+  background: rgba(0, 0, 0, 0.52);
   display: none;
   height: 100%;
   left: 0;
@@ -9,148 +205,86 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 100;
+}
+.modal-wrapper {
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 24px 24px;
+  grid-template-columns: repeat(12, 1fr);
+  margin: 0 auto;
+  padding: 24px;
+  width: 960px;
 }
 .modal-content {
-  background-color: #fff;
-  border: 1px solid #888;
-  box-sizing: border-box; /* csslint allow: box-sizing */
-  margin: 15% auto;
-  padding: 20px;
-  width: 640px;
+  background: #fff;
+  box-sizing: border-box;
+  display: grid;
+  grid-gap: 24px 24px;
+  grid-column: 2 / 12;
+  grid-template-columns: repeat(12, 1fr);
+  padding: 24px;
 }
-.shareable-link-container {
-  background: #f5f6fa;
-  border: solid #ddd 1px;
-  box-sizing: border-box; /* csslint allow: box-sizing */
-  margin-bottom: 6px;
-  margin-top: 16px;
-  padding: 12px;
-  width: 100%;
+.modal-content .modal-content-preview {
+  grid-column: 2 / 12;
+  text-align: left;
 }
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: 700;
+.modal-social-options {
+  margin: 24px 0;
 }
-.close:hover,
-.close:focus {
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    width: auto;
+  }
+  .modal-wrapper {
+    width: auto;
+  }
+  h1 {
+    margin-left: -24px;
+  }
 }
-
-/* GREETINGS PAGE */
-.flip-card {
-  height: 480px;
-  perspective: 1000px;
-  width: 640px;
+@media screen and (max-width: 839px) {
+  .grid-container {
+    grid-gap: 24px;
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .modal-content {
+    grid-column: span 12;
+  }
 }
-@keyframes cardFlip {
-  50% {transform: rotateY(90deg) scale(0.7, 0.7);}
-  to {transform: rotateY(180deg) scale(1, 1);}
+@media screen and (max-width: 719px) {
+  .wrapper {
+    padding: 24px 16px;
+  }
+  h1 {
+    margin-left: -16px;
+  }
+  .grid-container {
+    grid-gap: 16px;
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .modal-wrapper {
+    grid-gap: 16px;
+    padding: 24px 16px;
+  }
+  .modal-content {
+    grid-gap: 16px;
+    padding: 24px 16px;
+  }
 }
-.flip-card-inner {
-  animation-duration: 1s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: cardFlip;
-  animation-timing-function: linear;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  width: 100%;
-}
-.flip-card-front, .flip-card-back {
-  backface-visibility: hidden;
-  height: 100%;
-  position: absolute;
-  width: 100%;
-}
-.flip-card-back {
-  transform: rotateY(180deg);
-}
-.postcard {
-  background-image: url('../img/loppukuva.jpg');
-  background-size: cover;
-  height: 100%;
-  overflow: auto;
-  position: relative;
-  width: 100%;
-}
-.postcard span {
-  color: #000F55;
-  font-family: 'Satisfy', cursive;
-}
-.postcard .message,
-.postcard .sender,
-.postcard .receiver {
-  position: absolute;
-  width: 250px;
-}
-.postcard .message {
-  font-size: 36px;
-  left: 32px;
-  top: 92px;
-}
-.postcard .sender {
-  bottom: 52px;
-  font-size: 28px;
-  left: 32px;
-}
-.postcard .receiver {
-  font-size: 28px;
-  left: 360px;
-  top: 200px;
-}
-@keyframes fadeIn {
-  to {opacity: 1;}
-}
-.fade-in {
-  animation-duration: 0.3s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-name: fadeIn;
-  animation-timing-function: ease-in;
-  opacity: 0;
-}
-.is-paused {
-  animation-play-state: paused;
-}
-
-/* POSTCARD THUMBNAIL */
-.postcard_thumbnail {
-  position: relative;
-}
-.postcard_thumbnail--wrapper {
-  padding-bottom: 12px;
-  padding-top: 12px;
-}
-.postcard_thumbnail--content {
-  background: #eee;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-
-/* HIDE RADIO */
-[type=radio] {
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* IMAGE STYLES */
-[type=radio] + img {
-  cursor: pointer;
-}
-
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-  outline: 2px solid #f00;
+@media screen and (max-width: 479px) {
+  .grid-container {
+    grid-gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .introductory-text-block {
+    grid-column: span 4;
+  }
+  .grid-placeholder {
+    display: none;
+  }
+  .modal-content .modal-content-preview {
+    grid-column: span 12;
+    text-align: center;
+  }
 }
