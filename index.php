@@ -24,7 +24,7 @@
         </section>
         <div class="grid-placeholder"></div>
         <div class="gallery-button-container">
-          <a href="form.html" class="gallery-button">
+          <a href="form.php" class="gallery-button">
             <span>Luo uusi kortti</span>
           </a>
         </div>
