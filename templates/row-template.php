@@ -1,9 +1,14 @@
-<div id="row-<?php echo $id; ?>" class="col-sm-6 col-lg-4 postcard_thumbnail--wrapper">
-  <article class="postcard_thumbnail">
-    <div class="postcard_thumbnail--content">
-      <span><?php print $sender; ?></span>
-      <span><?php print $receiver; ?></span>
-      <span><?php print $message; ?></span>
-    </div>
-  </article>
-</div>
+<article class="gallery-card">
+  <h3><?php print $receiver; ?></h3>
+  <a class="gallery-card-thumbnail" href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
+    <i class="material-icons gallery-play-button">play_circle_filled</i>
+    <img src="public/img/lapsuuden-haave.jpg" width="100%"/>
+  </a>
+  <input class="gallery-card-url" type="text" value="<?php print $ref; ?>" readonly>
+  <div class="gallery-some-icons">
+    <span>Jaa:</span>
+    <a href="#">Facebook,</a>
+    <a href="#">Twitter,</a>
+    <a href="#">LinkedIn</a>
+  </div>
+</article>

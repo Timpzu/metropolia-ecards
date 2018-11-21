@@ -43,6 +43,9 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### DATABASE ###
+scripts/database.php
+
 ### CAS ###
 scripts/CAS
 CAS.php
