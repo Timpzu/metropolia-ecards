@@ -45,8 +45,23 @@ p {
   margin: 27px 0;
 }
 a {
- color: #444545;
+ color: #454546;
  font-weight: bold;
+}
+a.go-back {
+  color: rgba(69, 69, 70, 0.6);
+  display: flex;
+  letter-spacing: 0.025rem;
+  line-height: 1.25em;
+  margin: 27px 0;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+a.go-back span {
+  margin-left: 8px;
+}
+a.go-back:hover {
+  color: rgba(69, 69, 70, 0.87);
 }
 input[type=text],
 textarea {
@@ -70,16 +85,19 @@ button {
   background: #f9f9fa;
   border: 1px #ced1d1 solid;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
-  box-sizing: border-box;
   color: #454546;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   font-weight: bold;
-  margin-right: 8px;
+  margin: 24px 0;
   padding: 12px;
   text-decoration: none;
   text-transform: uppercase;
+}
+.button {
+  display: inline-block;
+  margin-right: 8px;
 }
 ::placeholder {
   color: #8e9191;
@@ -90,14 +108,19 @@ button {
 .grid-placeholder {
   grid-column-end: -1;
 }
-.gallery-card {
+.card-preview {
   grid-column: span 4;
 }
-.gallery-card h3 {
+.card-preview h3 {
   margin-top: 0px;
 }
-.gallery-card a {
+.card-preview a {
+  display: inline-block;
   line-height: 0;
+  position: relative;
+}
+.card-preview-img {
+  box-sizing: border-box;
 }
 input.card-url {
   color: #8e9191;
@@ -110,7 +133,7 @@ input.card-url {
   margin: 0 0 18px 0;
   text-align: center;
 }
-.gallery-card-thumbnail {
+.card-preview-thumbnail {
   background: #eee;
   border-left: 6px #fec92f solid;
   box-sizing: border-box;
@@ -118,23 +141,30 @@ input.card-url {
   position: relative;
   width: 100%;
 }
-.gallery-play-button {
-  color: #fff;
-  color: rgba(255,255,255, 0.96);
-  font-size: 500%;
+.gallery-thumbnail-icon {
+  left: 50%;
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  left: 50%;
 }
-.gallery-card:nth-of-type(2n) .gallery-card-thumbnail {
-  border-left: 4px #569442 solid;
+p.gallery-thumbnail-icon {
+  color: #454546;
+  background: rgba(255, 255, 255, 0.80);
+  border-radius: 4px;
+  font-size: 16px;
+  margin: 0;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
 }
-.gallery-card:nth-of-type(3n) .gallery-card-thumbnail {
-  border-left: 4px #d31773 solid;
+.card-preview:nth-of-type(2n) .card-preview-thumbnail {
+  border-left: 6px #569442 solid;
 }
-.gallery-card:nth-of-type(4n) .gallery-card-thumbnail {
-  border-left: 4px #1884c7 solid;
+.card-preview:nth-of-type(3n) .card-preview-thumbnail {
+  border-left: 6px #d31773 solid;
+}
+.card-preview:nth-of-type(4n) .card-preview-thumbnail {
+  border-left: 6px #1884c7 solid;
 }
 .gallery-button-container {
   grid-column: span 4;
@@ -195,6 +225,13 @@ input.card-url {
   margin: 6px auto;
   width: 100%;
 }
+.form-previews label {
+  display: flex;
+}
+.form-previews label span {
+  margin-left: 8px;
+}
+
 .modal {
   background: #000;
   background: rgba(0, 0, 0, 0.52);
@@ -207,36 +244,15 @@ input.card-url {
   width: 100%;
   z-index: 100;
 }
-.modal-wrapper {
-  box-sizing: border-box;
-  display: grid;
-  grid-gap: 24px 24px;
-  grid-template-columns: repeat(12, 1fr);
-  margin: 0 auto;
-  padding: 24px;
-  width: 960px;
-}
 .modal-content {
   background: #fff;
   box-sizing: border-box;
-  display: grid;
-  grid-gap: 24px 24px;
-  grid-column: 2 / 12;
-  grid-template-columns: repeat(12, 1fr);
+  display: block;
+  grid-column: 3 / span 8;
   padding: 24px;
-}
-.modal-content .modal-content-preview {
-  grid-column: 2 / 12;
-  text-align: left;
-}
-.modal-social-options {
-  margin: 24px 0;
 }
 @media screen and (max-width: 1024px) {
   .wrapper {
-    width: auto;
-  }
-  .modal-wrapper {
     width: auto;
   }
   h1 {
@@ -249,7 +265,7 @@ input.card-url {
     grid-template-columns: repeat(8, 1fr);
   }
   .modal-content {
-    grid-column: span 12;
+    grid-column: 2 / span 6;
   }
 }
 @media screen and (max-width: 719px) {
@@ -263,13 +279,8 @@ input.card-url {
     grid-gap: 16px;
     grid-template-columns: repeat(8, 1fr);
   }
-  .modal-wrapper {
-    grid-gap: 16px;
-    padding: 24px 16px;
-  }
   .modal-content {
-    grid-gap: 16px;
-    padding: 24px 16px;
+    grid-column: span 8;
   }
 }
 @media screen and (max-width: 479px) {
@@ -283,8 +294,16 @@ input.card-url {
   .grid-placeholder {
     display: none;
   }
-  .modal-content .modal-content-preview {
-    grid-column: span 12;
+  .modal-content {
+    grid-column: span 4;
+  }
+  .modal-content-preview {
     text-align: center;
   }
+  .form-previews .card-preview {
+    grid-column: span 2;
+  }
+}
+.border {
+  border: 4px solid #f15c22;
 }

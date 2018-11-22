@@ -13,6 +13,9 @@
   </head>
   <body>
     <div class="wrapper">
+      <header>
+        <a class="go-back" href="index.php"><i class="material-icons">arrow_back</i><span>Palaa etusivulle</span></a>
+      </header>
       <main class="grid-container">
         <section class="introductory-text-block">
           <h2>Luo uusi tervehdys</h2>
@@ -28,25 +31,28 @@
             <input id="fuser" type="text" name="user" required="required" value="<?php echo phpCAS::getUser(); ?>" readonly>
             <input id="fsender" type="text" name="sender" required="required" placeholder="Lähettäjä">
             <input id="freceiver" type="text" name="receiver" required="required" placeholder="Vastaanottaja">
-            <input id="fmessage" type="text" name="message" required="required" placeholder="Viesti"></input>
-            <section class="grid-container form-previews">
-              <div class="gallery-card">
-                <a class="" href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-                  <img src="public/img/lapsuuden-haave.jpg" width="100%"/>
+            <textarea id="fmessage" type="text" name="message" required="required" placeholder="Viesti"></textarea>
+            <section id="form-previews" class="grid-container form-previews">
+              <div class="card-preview">
+                <a href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
+                  <img class="gallery-thumbnail-icon" src="public/img/icons/twotone-play_circle_filled-24px.svg" alt="" height="50%">
+                  <img class="card-preview-img border" src="public/img/lapsuuden-haave.jpg" width="100%"/>
                 </a>
-                <label><input type="radio" name="animation" value="A"> Animaatio 1</label>
+                <label><input type="radio" name="animation" value="A" checked><span>Animaatio 1</span></label>
               </div>
-              <div class="gallery-card">
-                <a class="" href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-                  <img src="public/img/lapsuuden-haave.jpg" width="100%"/>
+              <div class="card-preview">
+                <a href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
+                  <img class="gallery-thumbnail-icon" src="public/img/icons/twotone-play_circle_filled-24px.svg" alt="" height="50%">
+                  <img class="card-preview-img" src="public/img/lapsuuden-haave.jpg" width="100%"/>
                 </a>
-                <label><input type="radio" name="animation" value="B"> Animaatio 2</label>
+                <label><input type="radio" name="animation" value="B"><span>Animaatio 2</span></label>
               </div>
-              <div class="gallery-card">
-                <a class="" href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-                  <img src="public/img/lapsuuden-haave.jpg" width="100%"/>
+              <div class="card-preview">
+                <a href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
+                  <img class="gallery-thumbnail-icon" src="public/img/icons/twotone-play_circle_filled-24px.svg" alt="" height="50%">
+                  <img class="card-preview-img" src="public/img/lapsuuden-haave.jpg" width="100%"/>
                 </a>
-                <label><input type="radio" name="animation" value="C"> Animaatio 3</label>
+                <label><input type="radio" name="animation" value="C"><span>Animaatio 3</span></label>
               </div>
             </section>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
@@ -58,18 +64,20 @@
     </div>
     <!-- MODAL -->
     <div id="share-options" class="modal">
-      <div class="modal-wrapper">
-        <div class="modal-content">
-          <section class="modal-content-preview">
-            <h2>JAA KORTTI YSTÄVÄLLESI</h2>
-            <video src="lapsuuden-haave.mp4" controls width="100%;"></video>
-            <section class="modal-social-options">
-              <h3>Kopioi linkki tai jaa se somessa</h3>
-              <input id="shareable-link" class="card-url" type="text" value=" " readonly>
+      <div class="wrapper">
+        <div class="grid-container">
+          <div class="modal-content">
+            <section class="modal-content-preview">
+              <h2>JAA KORTTI YSTÄVÄLLESI</h2>
+              <video src="lapsuuden-haave.mp4" controls width="100%;"></video>
+              <section class="modal-social-options">
+                <h3>Kopioi linkki tai jaa se somessa</h3>
+                <input id="shareable-link" class="card-url" type="text" value=" " readonly>
+              </section>
+              <a class="button page-reload" type="button" name="button">Tee uusi</a>
+              <a href="index.php" class="button" name="button">Palaa etusivulle</a>
             </section>
-            <a class="button page-reload" type="button" name="button">Tee uusi</a>
-            <a href="index.php" class="button" name="button">Palaa etusivulle</a>
-          </section>
+          </div>
         </div>
       </div>
     </div>

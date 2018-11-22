@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
   $(this).scrollTop(0);
 
   $('#sending-info-form').on('submit', function(e){
@@ -30,6 +30,12 @@ $(document).ready(function(){
   $('.page-reload').click(function() {
       location.reload(true);
   });
+});
+$('#form-previews input').on('change', function() {
+  $('.card-preview').find('.card-preview-img').removeClass('border');
+  if ($(this).is(':checked')) {
+    $(this).closest('.card-preview').find('.card-preview-img').addClass('border');
+  }
 });
 function copyLink() {
   var shareableLink = document.getElementById("shareable-link");

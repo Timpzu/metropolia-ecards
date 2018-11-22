@@ -1,7 +1,7 @@
-<article class="gallery-card">
+<article class="card-preview">
   <h3><?php print $receiver; ?></h3>
-  <a class="gallery-card-thumbnail" href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-    <i class="material-icons gallery-play-button">play_circle_filled</i>
+  <a class="card-preview-thumbnail" href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
+    <p class="gallery-thumbnail-icon">Klikkaa esikatsellaksesi</p>
     <img src="public/img/lapsuuden-haave.jpg" width="100%"/>
   </a>
   <input class="card-url" type="text" value="<?php print $ref; ?>" readonly>
