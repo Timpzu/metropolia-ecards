@@ -1,10 +1,7 @@
 <?php
   include 'database.php';
-  include 'login.php';
 
-  $user = phpCAS::getUser();
-
-  $sql = "SELECT * FROM cards INNER JOIN animations ON cards.anim_id = animations.anim_id WHERE user='$user'";
+  $sql = "SELECT * FROM animations";
   $result = $mysqli->query($sql);
 
   function template( $file, $args ){

@@ -1,4 +1,5 @@
 <?php require 'scripts/login.php';?>
+<?php require 'scripts/previews.php';?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -33,27 +34,17 @@
             <input id="freceiver" type="text" name="receiver" required="required" placeholder="Vastaanottaja">
             <textarea id="fmessage" type="text" name="message" required="required" placeholder="Viesti"></textarea>
             <section id="form-previews" class="grid-container form-previews">
-              <div class="card-preview">
-                <a href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-                  <img class="gallery-thumbnail-icon" src="public/img/icons/twotone-play_circle_filled-24px.svg" alt="" height="50%">
-                  <img class="card-preview-img border" src="public/img/lapsuuden-haave.jpg" width="100%"/>
-                </a>
-                <label><input type="radio" name="animation" value="A" checked><span>Animaatio 1</span></label>
-              </div>
-              <div class="card-preview">
-                <a href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-                  <img class="gallery-thumbnail-icon" src="public/img/icons/twotone-play_circle_filled-24px.svg" alt="" height="50%">
-                  <img class="card-preview-img" src="public/img/lapsuuden-haave.jpg" width="100%"/>
-                </a>
-                <label><input type="radio" name="animation" value="B"><span>Animaatio 2</span></label>
-              </div>
-              <div class="card-preview">
-                <a href="public/video/lapsuuden-haave.mp4" data-lity data-lity-desc="">
-                  <img class="gallery-thumbnail-icon" src="public/img/icons/twotone-play_circle_filled-24px.svg" alt="" height="50%">
-                  <img class="card-preview-img" src="public/img/lapsuuden-haave.jpg" width="100%"/>
-                </a>
-                <label><input type="radio" name="animation" value="C"><span>Animaatio 3</span></label>
-              </div>
+              <?php
+                $file = __DIR__ . '/templates/preview-template.php';
+
+                $output = '';
+
+                foreach ( $result as $row ){
+                  $output.= template( $file, $row );
+                }
+
+                print $output;
+              ?>
             </section>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
               sed diam nonummy nibh euismod tincidunt ut laoreet dolore rat volutpat.</p>

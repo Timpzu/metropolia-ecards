@@ -1,4 +1,5 @@
 <?php include 'scripts/collect.php'; ?>
+<?php include 'scripts/pageURL.php'; ?>
 <!DOCTYPE html>
 <html>
   <head>

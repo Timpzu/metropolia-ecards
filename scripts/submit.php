@@ -2,11 +2,11 @@
 include 'database.php';
 
 // prepare and bind
-$stmt = $mysqli->prepare("INSERT INTO cards (ref, user, sender, receiver, message, animation) VALUES (?, ?, ?, ?, ?, ?)");
-$stmt->bind_param("ssssss", $ref, $user, $sender, $receiver, $message, $animation);
+$stmt = $mysqli->prepare("INSERT INTO cards (ref, user, sender, receiver, message, anim_id) VALUES (?, ?, ?, ?, ?, ?)");
+$stmt->bind_param("ssssss", $ref, $user, $sender, $receiver, $message, $anim_id);
 
 // define variables and set to empty values
-$senderErr = $receiverErr = $messageErr = $userErr = $animationErr = '';
+$senderErr = $receiverErr = $messageErr = $userErr = $anim_idErr = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $ref = uniqid('', true);
@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $message = test_input($_POST['message']);
   }
   $user = $_POST['user'];
-  $animation = $_POST['animation'];
-  
+  $anim_id = $_POST['anim_id'];
+
   $stmt->execute();
   $last_id = $mysqli->insert_id;
 }
