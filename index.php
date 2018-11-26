@@ -1,13 +1,48 @@
-<?php include 'scripts/collect.php'; ?>
-<?php include 'scripts/pageURL.php'; ?>
+<?php
+  require 'scripts/database.php';
+  require 'scripts/login.php';
+
+  function curPageURL() {
+    $pageURL = 'http';
+    if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80") {
+      $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+    } else {
+      $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+    }
+    return $pageURL;
+  }
+
+  $user = phpCAS::getUser();
+
+  $sql = "SELECT * FROM cards INNER JOIN animations ON cards.anim_id = animations.anim_id WHERE user='$user'";
+  $result = $mysqli->query($sql);
+
+  function template( $file, $args ){
+    // ensure the file exists
+    if ( !file_exists( $file ) ) {
+      return '';
+    }
+    // Make values in the associative array easier to access by extracting them
+    if ( is_array( $args ) ){
+      extract( $args );
+    }
+    // buffer the output (including the file is "output")
+    ob_start();
+    include $file;
+    return ob_get_clean();
+  }
+
+  $mysqli->close();
+?>
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Etusivu | Metropolian joulutervehdys</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
     <link href="public/css/lity.min.css" rel="stylesheet">
     <link rel="stylesheet" href="public/css/styles.css" type="text/css">

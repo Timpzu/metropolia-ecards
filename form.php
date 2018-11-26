@@ -1,5 +1,27 @@
-<?php require 'scripts/login.php';?>
-<?php require 'scripts/previews.php';?>
+<?php
+  require 'scripts/database.php';
+  require 'scripts/login.php';
+
+  $sql = "SELECT * FROM animations";
+  $result = $mysqli->query($sql);
+
+  function template( $file, $args ){
+    // ensure the file exists
+    if ( !file_exists( $file ) ) {
+      return '';
+    }
+    // Make values in the associative array easier to access by extracting them
+    if ( is_array( $args ) ){
+      extract( $args );
+    }
+    // buffer the output (including the file is "output")
+    ob_start();
+    include $file;
+    return ob_get_clean();
+  }
+
+  $mysqli->close();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -75,6 +97,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async src="https://static.addtoany.com/menu/page.js"></script>
     <script src="public/js/lity.min.js"></script>
-    <script src="public/js/functions.js"></script>
+    <script src="public/js/submit.js"></script>
+    <script type="text/javascript">
+      $('.card-preview input').on('change', function() {
+        if ($(this).is(':checked')) {
+          $(this).closest('.card-preview').find('.card-preview-img').addClass('preview-border');
+        }
+        $('.card-preview input').not(this).closest('.card-preview').find('.card-preview-img').removeClass('preview-border');
+      });
+      $('.page-reload').click(function() {
+          location.reload(true);
+      });
+
+      // function copyLink() {
+      //   var shareableLink = document.getElementById("shareable-link");
+      //   shareableLink.select();
+      //   document.execCommand("copy");
+      // }
+
+    </script>
   </body>
 </html>
