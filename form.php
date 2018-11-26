@@ -29,6 +29,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Uusi tervehdys | Metropolian joulutervehdys</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
     <link href="public/css/lity.min.css" rel="stylesheet">
@@ -73,6 +74,16 @@
             <input type="submit" value="Tallenna ja lähetä">
           </form>
         </section>
+        <section class="input-preview">
+          <div class="input-preview-wrapper">
+            <article class="input-preview-content">
+              <span id="preview-input-sender"></span>
+              <span id="preview-input-receiver"></span>
+              <span id="preview-input-message"></span>
+              <img src="public/img/endpic2611.jpg" width="100%" />
+            </article>
+          </div>
+        </section>
       </main>
     </div>
     <!-- MODAL -->
@@ -99,12 +110,23 @@
     <script src="public/js/lity.min.js"></script>
     <script src="public/js/submit.js"></script>
     <script type="text/javascript">
+      $('#fsender').keyup(function() {
+        $('#preview-input-sender').html(this.value);
+      });
+      $('#freceiver').keyup(function() {
+        $('#preview-input-receiver').html(this.value);
+      });
+      $('#fmessage').keyup(function() {
+        $('#preview-input-message').html(this.value);
+      });
+
       $('.card-preview input').on('change', function() {
         if ($(this).is(':checked')) {
           $(this).closest('.card-preview').find('.card-preview-img').addClass('preview-border');
         }
         $('.card-preview input').not(this).closest('.card-preview').find('.card-preview-img').removeClass('preview-border');
       });
+
       $('.page-reload').click(function() {
           location.reload(true);
       });

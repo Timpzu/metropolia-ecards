@@ -42,7 +42,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Etusivu | Metropolian joulutervehdys</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
     <link href="public/css/lity.min.css" rel="stylesheet">
     <link rel="stylesheet" href="public/css/styles.css" type="text/css">
@@ -79,5 +79,12 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="public/js/lity.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        if($('body').find('.card-preview').length === 0) {
+          $('.gallery-button').css('margin-top', '0');
+        }
+      });
+    </script>
   </body>
 </html>
