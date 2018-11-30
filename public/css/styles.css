@@ -42,7 +42,6 @@ h3 {
 }
 p {
   line-height: 1.5em;
-  margin: 27px 0;
 }
 a {
  color: #454546;
@@ -75,13 +74,18 @@ textarea {
   resize: none;
   width: 100%;
 }
+figure {
+  margin: 0;
+}
+figure figcaption {
+  margin: 8px 0;
+}
 form p {
   color: #8e9191;
   font-size: 16px;
 }
 .button,
-input[type=submit],
-button {
+input[type=submit] {
   background: #f9f9fa;
   border: 1px #ced1d1 solid;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
@@ -122,10 +126,29 @@ button {
 .card-preview-img {
   box-sizing: border-box;
 }
+.shareable-link-container {
+  position: relative;
+}
+.shareable-link-container button {
+  color: #454546;
+  cursor: pointer;
+  background: #f9f9fa;
+  font-size: 16px;
+  font-weight: bold;
+  height: 44px;
+  margin: 6px 0;
+  position: absolute;
+  right:0;
+  text-transform: uppercase;
+  top:0;
+  width: 72px;
+}
 input.card-url {
   color: #8e9191;
-  margin: 8px auto;
+  height: 44px;
+  padding-right: 84px;
   text-align: center;
+  width:100%;
 }
 .gallery-some-icons {
   color: #444545;
@@ -209,7 +232,7 @@ p.gallery-thumbnail-icon {
   display: block;
   font-size: 16px;
   font-weight: bold;
-  padding: 8px 0;
+  margin-top: 8px;
 }
 .create-card-form input[type=text],
 .create-card-form textarea {
@@ -237,7 +260,7 @@ p.gallery-thumbnail-icon {
 }
 .input-preview {
   grid-column: span 6;
-  margin-top: 52px;
+  margin-top: 72px;
 }
 .input-preview-content {
   position: relative;
@@ -289,12 +312,8 @@ p.gallery-thumbnail-icon {
   grid-column: 3/-3;
   position: relative;
 }
-.card-frame figure {
-  margin: 0;
-}
 .card-frame figure figcaption {
   color: #ffffff;
-  padding: 8px;
   text-align: center;
 }
 .card-backside {
@@ -422,4 +441,15 @@ p.gallery-thumbnail-icon {
   .card-message {
     font-size: 28px;
   }
+  .button {
+    display: block;
+  }
+}
+
+#fuser {
+  display: none;
+}
+.gallery-heading {
+  grid-column: 1 / -1;
+  margin: 12px 0;
 }

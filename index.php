@@ -41,7 +41,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Etusivu | Metropolian joulutervehdys</title>
+    <title>Etusivu | Metropolian joulutervehdys 2018</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
     <link href="public/css/lity.min.css" rel="stylesheet">
@@ -51,14 +51,18 @@
     <div class="wrapper">
       <main class="grid-container">
         <section class="introductory-text-block">
-          <h1>Joulutervehdys</h1>
-          <h2>Tarkastele tekemiäsi kortteja</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.</p>
+          <h1>Metropolian joulutervehdys 2018</h1>
+          <p>Kustomoi Metropolian graafisen suunnittelun opiskelijoiden
+            suunnittelemat ja toteuttamat joulutervehdysanimaatiot
+            yhteistyökumppaneillesi ja ystävillesi tällä alustalla.</p>
+          <p>Voit lisätä animaation loppukuvaan oman persoonallisen viestisi
+            sekä oman nimesi allekirjoitukseksi. Voit halutessasi kohdentaa
+            viestin myös jollekin ryhmälle yksilöiden sijaan.</p>
+          <p>Kustomoinnin jälkeen voit kopioida yksilöllisen nettiosoitteen ja
+            lähettää sen sähköpostilla tai jakaa suoraan sosiaalisen median kanaviisi.</p>
         </section>
         <div class="grid-placeholder"></div>
+        <h2 class="gallery-heading">Tarkastele tekemiäsi kortteja</h2>
         <div class="gallery-button-container">
           <a href="form.php" class="gallery-button">
             <span>Luo uusi kortti</span>
@@ -84,6 +88,13 @@
         if($('body').find('.card-preview').length === 0) {
           $('.gallery-button').css('margin-top', '0');
         }
+      });
+      $('.card-url-copy').click(function() {
+        var x = $(this).prev('.card-url');
+        console.log(x);
+        x.focus();
+        x.select();
+        document.execCommand("copy");
       });
     </script>
   </body>

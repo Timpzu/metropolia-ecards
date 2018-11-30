@@ -43,19 +43,27 @@
       <main class="grid-container">
         <section class="introductory-text-block">
           <h2>Luo uusi tervehdys</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-            minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-            ex ea commodo consequat.</p>
+          <!-- <p>Kustomoi Metropolian graafisen suunnittelun opiskelijoiden
+            suunnittelemat ja toteuttamat joulutervehdysanimaatiot
+            yhteistyökumppaneillesi ja ystävillesi tällä alustalla.</p>
+          <p>Voit lisätä animaation loppukuvaan oman persoonallisen viestisi
+            sekä oman nimesi allekirjoitukseksi. Voit halutessasi kohdentaa
+            viestin myös jollekin ryhmälle yksilöiden sijaan.</p>
+          <p>Kustomoinnin jälkeen voit kopioida yksilöllisen nettiosoitteen ja
+            lähettää sen sähköpostilla tai jakaa suoraan sosiaalisen median kanaviisi.</p> -->
         </section>
         <div class="grid-placeholder"></div>
         <section class="create-card-form">
           <h3>Lähetystiedot:</h3>
           <form id="sending-info-form" method="post">
+
             <input id="fuser" type="text" name="user" required="required" value="<?php echo phpCAS::getUser(); ?>" readonly>
-            <input id="fsender" type="text" name="sender" required="required" placeholder="Lähettäjä">
-            <input id="freceiver" type="text" name="receiver" required="required" placeholder="Vastaanottaja">
-            <textarea id="fmessage" type="text" name="message" required="required" placeholder="Viesti"></textarea>
+            <label for="fsender">Lähettäjä (oma nimi tai yksikön nimi)</label>
+            <input id="fsender" type="text" name="sender" required="required">
+            <label for="freceiver">Vastaanottaja</label>
+            <input id="freceiver" type="text" name="receiver" required="required">
+            <label for="fmessage">Viesti</label>
+            <textarea id="fmessage" type="text" name="message" required="required"></textarea>
             <section id="form-previews" class="grid-container form-previews">
               <?php
                 $file = __DIR__ . '/templates/preview-template.php';
@@ -69,9 +77,7 @@
                 print $output;
               ?>
             </section>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-              sed diam nonummy nibh euismod tincidunt ut laoreet dolore rat volutpat.</p>
-            <input type="submit" value="Tallenna ja lähetä">
+            <input type="submit" value="Tallenna ja siirry lähettämään">
           </form>
         </section>
         <section class="input-preview">
@@ -92,14 +98,20 @@
         <div class="grid-container">
           <div class="modal-content">
             <section class="modal-content-preview">
-              <h2>JAA KORTTI YSTÄVÄLLESI</h2>
-              <video src="lapsuuden-haave.mp4" controls width="100%;"></video>
+              <h2>Lähetä tervehdys</h2>
+              <figure>
+                <figcaption>Esikatselu</figcaption>
+                <video src="lapsuuden-haave.mp4" controls width="100%;"></video>
+              </figure>
               <section class="modal-social-options">
                 <h3>Kopioi linkki tai jaa se somessa</h3>
-                <input id="shareable-link" class="card-url" type="text" value=" " readonly>
+                <div class="shareable-link-container">
+                  <input id="shareable-link" class="card-url" type="text" value=" " readonly>
+                  <button onclick="copyLink()">Kopioi</button>
+                </div>
               </section>
-              <a class="button page-reload" type="button" name="button">Tee uusi</a>
-              <a href="index.php" class="button" name="button">Palaa etusivulle</a>
+              <a class="button page-reload" type="button" name="button">Luo uusi joulutervehdys</a>
+              <a href="index.php" class="button" name="button">Palaa aloitussivulle</a>
             </section>
           </div>
         </div>
@@ -130,13 +142,11 @@
       $('.page-reload').click(function() {
           location.reload(true);
       });
-
-      // function copyLink() {
-      //   var shareableLink = document.getElementById("shareable-link");
-      //   shareableLink.select();
-      //   document.execCommand("copy");
-      // }
-
+      function copyLink() {
+        var shareableLink = document.getElementById("shareable-link");
+        shareableLink.select();
+        document.execCommand("copy");
+      }
     </script>
   </body>
 </html>

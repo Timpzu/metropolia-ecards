@@ -5,7 +5,10 @@
     <p class="gallery-thumbnail-icon">Klikkaa esikatsellaksesi</p>
     <img src="public/img/<?php echo $filename ?>.jpg" width="100%"/>
   </a>
-  <input class="card-url" type="text" value="<?php echo $url; ?>" readonly>
+  <div class="shareable-link-container">
+    <input class="card-url" type="text" value="<?php echo $url; ?>" readonly>
+    <button class="card-url-copy">Kopioi</button>
+  </div>
   <div class="gallery-some-icons">
     <span>Jaa:</span>
     <a href="#">Facebook,</a>
