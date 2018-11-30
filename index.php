@@ -37,10 +37,11 @@
   $mysqli->close();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fi">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Kustomoi Metropolian graafisen suunnittelun opiskelijoiden suunnittelemat ja toteuttamat joulutervehdysanimaatiot yhteistyökumppaneillesi ja ystävillesi tällä alustalla.">
     <title>Etusivu | Metropolian joulutervehdys 2018</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="public/css/normalize.css" type="text/css">

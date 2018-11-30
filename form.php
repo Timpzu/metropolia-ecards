@@ -23,10 +23,11 @@
   $mysqli->close();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fi">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Kustomoi Metropolian graafisen suunnittelun opiskelijoiden suunnittelemat ja toteuttamat joulutervehdysanimaatiot yhteistyökumppaneillesi ja ystävillesi tällä alustalla.">
     <title>Uusi tervehdys | Metropolian joulutervehdys</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
@@ -43,20 +44,11 @@
       <main class="grid-container">
         <section class="introductory-text-block">
           <h2>Luo uusi tervehdys</h2>
-          <!-- <p>Kustomoi Metropolian graafisen suunnittelun opiskelijoiden
-            suunnittelemat ja toteuttamat joulutervehdysanimaatiot
-            yhteistyökumppaneillesi ja ystävillesi tällä alustalla.</p>
-          <p>Voit lisätä animaation loppukuvaan oman persoonallisen viestisi
-            sekä oman nimesi allekirjoitukseksi. Voit halutessasi kohdentaa
-            viestin myös jollekin ryhmälle yksilöiden sijaan.</p>
-          <p>Kustomoinnin jälkeen voit kopioida yksilöllisen nettiosoitteen ja
-            lähettää sen sähköpostilla tai jakaa suoraan sosiaalisen median kanaviisi.</p> -->
         </section>
         <div class="grid-placeholder"></div>
         <section class="create-card-form">
           <h3>Lähetystiedot:</h3>
           <form id="sending-info-form" method="post">
-
             <input id="fuser" type="text" name="user" required="required" value="<?php echo phpCAS::getUser(); ?>" readonly>
             <label for="fsender">Lähettäjä (oma nimi tai yksikön nimi)</label>
             <input id="fsender" type="text" name="sender" required="required">
@@ -80,14 +72,14 @@
             <input type="submit" value="Tallenna ja siirry lähettämään">
           </form>
         </section>
-        <section class="input-preview">
+        <section class="input-preview" aria-hidden="true">
           <div class="input-preview-wrapper">
-            <article class="input-preview-content">
+            <div class="input-preview-content">
               <span id="preview-input-sender"></span>
               <span id="preview-input-receiver"></span>
               <span id="preview-input-message"></span>
-              <img src="public/img/endpic2611.jpg" width="100%" />
-            </article>
+              <img alt="Joulutervehdykseen tulevan kortin tausta" src="public/img/endpic2611.jpg" width="100%" />
+            </div>
           </div>
         </section>
       </main>
@@ -108,6 +100,13 @@
                 <div class="shareable-link-container">
                   <input id="shareable-link" class="card-url" type="text" value=" " readonly>
                   <button onclick="copyLink()">Kopioi</button>
+                </div>
+                <div id="a2a_icons" class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url=" " data-a2a-title="Hauskaa joulua, ystävä!">
+                  <span>Jaa:</span>
+                  <a class="a2a_button_facebook"></a>
+                  <a class="a2a_button_twitter"></a>
+                  <a class="a2a_button_linkedin"></a>
+                  <a class="a2a_button_email"></a>
                 </div>
               </section>
               <a class="button page-reload" type="button" name="button">Luo uusi joulutervehdys</a>
@@ -147,6 +146,8 @@
         shareableLink.select();
         document.execCommand("copy");
       }
+      var a2a_config = a2a_config || {};
+      a2a_config.locale = "fi";
     </script>
   </body>
 </html>

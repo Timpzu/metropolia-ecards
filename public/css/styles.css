@@ -48,7 +48,7 @@ a {
  font-weight: bold;
 }
 a.go-back {
-  color: rgba(69, 69, 70, 0.6);
+  color: rgba(69, 69, 70, 0.87);
   display: flex;
   letter-spacing: 0.025rem;
   line-height: 1.25em;
@@ -60,7 +60,8 @@ a.go-back span {
   margin-left: 8px;
 }
 a.go-back:hover {
-  color: rgba(69, 69, 70, 0.87);
+  color: rgba(69, 69, 70, 0.6);
+
 }
 input[type=text],
 textarea {
@@ -143,6 +144,11 @@ input[type=submit] {
   top:0;
   width: 72px;
 }
+.gallery-heading {
+  grid-column: 1 / -1;
+  margin: 12px 0;
+}
+
 input.card-url {
   color: #8e9191;
   height: 44px;
@@ -286,6 +292,9 @@ p.gallery-thumbnail-icon {
   left: 6%;
   top: 10%;
 }
+#fuser {
+  display: none;
+}
 .modal {
   background: #000;
   background: rgba(0, 0, 0, 0.52);
@@ -304,6 +313,12 @@ p.gallery-thumbnail-icon {
   display: block;
   grid-column: 3 / span 8;
   padding: 24px;
+}
+.a2a_default_style span {
+  float: left;
+}
+.a2a_svg, .a2a_count {
+  border-radius: 0 !important;
 }
 .greeting-body {
   background-color: #323333;
@@ -385,6 +400,9 @@ p.gallery-thumbnail-icon {
   .card-frame {
     grid-column: 2 / -2;
   }
+  .input-preview {
+    display: none;
+  }
 }
 @media screen and (max-width: 719px) {
   .wrapper {
@@ -444,12 +462,4 @@ p.gallery-thumbnail-icon {
   .button {
     display: block;
   }
-}
-
-#fuser {
-  display: none;
-}
-.gallery-heading {
-  grid-column: 1 / -1;
-  margin: 12px 0;
 }
