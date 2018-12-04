@@ -37,33 +37,40 @@
   <body class="greeting-body">
     <div class="wrapper">
       <main class="grid-container">
-        <section class="card-frame">
-          <figure id="card-front">
-            <video width="100%" onended="revealBackside()" controls>
-              <source src="public/video/<?php echo $row['filename'] ?>.mp4" type="video/mp4">
-            </video>
-            <figcaption><strong>Tekijä: <?php echo $row['author']; ?></strong><br />
-            </figcaption>
-          </figure>
-          <article id="card-backside" class="card-backside fade-in is-paused">
-            <div class="card-backside-content">
-              <img src="public/img/loppukuva.jpg" alt="" width="100%" height="auto">
-              <span class="card-message"><?php echo $row['message']; ?></span>
-              <span class="card-sender"><?php echo $row['sender']; ?></span>
-              <span class="card-receiver"><?php echo $row['receiver']; ?></span>
-            </div>
-          </article>
+        <section class="card-frame flip-card">
+          <div id="flip-card-1-inner" class="flip-card-inner is-paused">
+            <figure id="card-front-frame" class="flip-card-front">
+              <video id="animation-1" width="100%" onended="revealBackside()" controls>
+                <source src="public/video/<?php echo $row['filename'] ?>.mp4" type="video/mp4">
+              </video>
+              <figcaption class="fade-out is-paused">
+                <strong>Tekijä: <?php echo $row['author']; ?></strong><br />
+                <?php
+                  if (!empty($row['copyright'])) {
+                    echo 'Musiikki: ' . $row['copyright'];
+                  }
+                 ?>
+              </figcaption>
+            </figure>
+            <article id="card-backside" class="card-backside flip-card-back">
+              <div id="card-1-backside-content" class="card-backside-content fade-in is-paused">
+                <img src="public/img/endpic2611.jpg" alt="" width="100%" height="auto">
+                <span class="card-message"><?php echo $row['message']; ?></span>
+                <span class="card-sender"><?php echo $row['sender']; ?></span>
+                <span class="card-receiver"><?php echo $row['receiver']; ?></span>
+              </div>
+            </article>
+          </div>
         </section>
       </main>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-      var cardBackside = $('#card-backside');
-      var cardFront = $('#card-front');
-
       var revealBackside = () => {
-        cardFront.css('display', 'none');
-        cardBackside.removeClass('is-paused');
+        $('#animation-1').removeAttr('controls');
+        $('.flip-card-front figcaption').removeClass('is-paused');
+        $('#flip-card-1-inner').removeClass('is-paused');
+        $('#card-1-backside-content').removeClass('is-paused');
       }
     </script>
   </body>

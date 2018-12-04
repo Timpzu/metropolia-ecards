@@ -88,6 +88,8 @@
       $(document).ready(function() {
         if($('body').find('.card-preview').length === 0) {
           $('.gallery-button').css('margin-top', '0');
+          $('.gallery-heading').css('display', 'none');
+          $('.gallery-heading').attr('aria-hidden', 'true');
         }
       });
       $('.card-url-copy').click(function() {

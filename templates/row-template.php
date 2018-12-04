@@ -9,10 +9,10 @@
     <input class="card-url" type="text" value="<?php echo $url; ?>" readonly>
     <button class="card-url-copy">Kopioi</button>
   </div>
-  <div class="gallery-some-icons">
+  <!-- <div class="gallery-some-icons">
     <span>Jaa:</span>
     <a href="#">Facebook,</a>
     <a href="#">Twitter,</a>
     <a href="#">LinkedIn</a>
-  </div>
+  </div> -->
 </article>

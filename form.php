@@ -25,7 +25,7 @@
 <!DOCTYPE html>
 <html lang="fi">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Kustomoi Metropolian graafisen suunnittelun opiskelijoiden suunnittelemat ja toteuttamat joulutervehdysanimaatiot yhteistyökumppaneillesi ja ystävillesi tällä alustalla.">
     <title>Uusi tervehdys | Metropolian joulutervehdys</title>
@@ -51,12 +51,13 @@
           <form id="sending-info-form" method="post">
             <input id="fuser" type="text" name="user" required="required" value="<?php echo phpCAS::getUser(); ?>" readonly>
             <label for="fsender">Lähettäjä (oma nimi tai yksikön nimi)</label>
-            <input id="fsender" type="text" name="sender" required="required">
+            <input id="fsender" type="text" name="sender" required="required" maxlength="32">
             <label for="freceiver">Vastaanottaja</label>
-            <input id="freceiver" type="text" name="receiver" required="required">
+            <input id="freceiver" type="text" name="receiver" required="required" maxlength="64">
             <label for="fmessage">Viesti</label>
-            <textarea id="fmessage" type="text" name="message" required="required"></textarea>
-            <section id="form-previews" class="grid-container form-previews">
+            <textarea id="fmessage" type="text" name="message" required="required" maxlength="72"></textarea>
+            <section id="form-previews-1" class="grid-container form-previews" aria-aria-labelledby="animation-group-heading">
+              <h4 id="form-previews-heading-1" class="form-previews-heading">Valitse etupuolelle tuleva animaatio:</h4>
               <?php
                 $file = __DIR__ . '/templates/preview-template.php';
 
@@ -78,7 +79,10 @@
               <span id="preview-input-sender"></span>
               <span id="preview-input-receiver"></span>
               <span id="preview-input-message"></span>
-              <img alt="Joulutervehdykseen tulevan kortin tausta" src="public/img/endpic2611.jpg" width="100%" />
+              <figure>
+                <figcaption>Esikatselu</figcaption>
+                <img alt="Joulutervehdykseen tulevan kortin tausta" src="public/img/endpic2611.jpg" width="100%" />
+              </figure>
             </div>
           </div>
         </section>
@@ -91,15 +95,11 @@
           <div class="modal-content">
             <section class="modal-content-preview">
               <h2>Lähetä tervehdys</h2>
-              <figure>
-                <figcaption>Esikatselu</figcaption>
-                <video src="lapsuuden-haave.mp4" controls width="100%;"></video>
-              </figure>
               <section class="modal-social-options">
                 <h3>Kopioi linkki tai jaa se somessa</h3>
                 <div class="shareable-link-container">
                   <input id="shareable-link" class="card-url" type="text" value=" " readonly>
-                  <button onclick="copyLink()">Kopioi</button>
+                  <button class="card-url-copy" onclick="copyLink()">Kopioi</button>
                 </div>
                 <div id="a2a_icons" class="a2a_kit a2a_kit_size_32 a2a_default_style" data-a2a-url=" " data-a2a-title="Hauskaa joulua, ystävä!">
                   <span>Jaa:</span>
