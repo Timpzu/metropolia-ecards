@@ -13,10 +13,7 @@
     filename varchar(50) NOT NULL,
     PRIMARY KEY (anim_id))";
 
-  $sql4 = "INSERT INTO animations (title, author, copyright, filename) VALUES
-    ('Esimerkkikortti', 'Erkki Esimerkki', 'Äänistä vastasi Erkki Esimerkki', 'kortti')";
-
-  $sql5 = "CREATE TABLE cards (
+  $sql4 = "CREATE TABLE cards (
     id int(11) NOT NULL AUTO_INCREMENT,
     ref varchar(23) NOT NULL,
     user varchar(15) NOT NULL,
@@ -27,7 +24,7 @@
     PRIMARY KEY (id),
     FOREIGN KEY (anim_id) REFERENCES animations(anim_id))";
 
-  if ($mysqli->query($sql1) === TRUE && $mysqli->query($sql2) === TRUE && $mysqli->query($sql3) === TRUE && $mysqli->query($sql4) === TRUE && $mysqli->query($sql5) === TRUE) {
+  if ($mysqli->query($sql1) === TRUE && $mysqli->query($sql2) === TRUE && $mysqli->query($sql3) === TRUE && $mysqli->query($sql4)) {
     echo "SQL statements executed successfully";
   } else {
       echo "SQL error: " . $mysqli->error;

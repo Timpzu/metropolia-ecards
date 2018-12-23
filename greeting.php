@@ -1,6 +1,5 @@
 <?php
   require 'scripts/database.php';
-  require 'scripts/login.php';
 
   function curPageURL() {
     $pageURL = 'http';
@@ -55,7 +54,9 @@
             <article id="card-backside" class="card-backside flip-card-back">
               <div id="card-1-backside-content" class="card-backside-content fade-in is-paused">
                 <img src="public/img/endpic2611.jpg" alt="" width="100%" height="auto">
-                <span class="card-message"><?php echo $row['message']; ?></span>
+                <div class="card-message" id="textfillElem">
+                  <span><?php echo $row['message']; ?></span>
+                </div>
                 <span class="card-sender"><?php echo $row['sender']; ?></span>
                 <span class="card-receiver"><?php echo $row['receiver']; ?></span>
               </div>
@@ -65,6 +66,7 @@
       </main>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="public/js/jquery.textfill.js"></script>
     <script type="text/javascript">
       var revealBackside = () => {
         $('#animation-1').removeAttr('controls');
@@ -72,6 +74,9 @@
         $('#flip-card-1-inner').removeClass('is-paused');
         $('#card-1-backside-content').removeClass('is-paused');
       }
+      $('#textfillElem').textfill({
+        maxFontPixels: 36
+      });
     </script>
   </body>
 </html>

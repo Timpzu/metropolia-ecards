@@ -262,6 +262,9 @@ p.gallery-thumbnail-icon {
 .create-card-form textarea {
   height: 108px;
 }
+.textarea-info {
+  font-size:14px;
+}
 h4.form-previews-heading {
   color: #323333;
   font-size: 16px;
@@ -297,13 +300,15 @@ h4.form-previews-heading {
 .input-preview-content figure figcaption {
   font-size: 16px;
 }
-.input-preview-content span {
-  color: #000F55;
+.input-preview-instance {
   display: block;
-  font-family: 'Satisfy', cursive;
-  line-height: 1.5em;
   position: absolute;
   width: 35%;
+}
+.input-preview-content span {
+  color: #000F55;
+  font-family: 'Satisfy', cursive;
+  line-height: 1.5em;
 }
 .input-preview-content span:first-of-type {
   bottom: 10%;
@@ -313,10 +318,14 @@ h4.form-previews-heading {
   left: 63%;
   top: 45%;
 }
-.input-preview-content span:nth-of-type(3) {
-  font-size: 22px;
-  left: 6%;
+.input-preview-instance:nth-child(3) {
+  height: 65%;
+  left: 5%;
   top: 15%;
+  width: 50%;
+}
+.input-preview-instance:nth-child(3) span {
+  font-size: 22px;
 }
 #fuser {
   display: none;
@@ -387,6 +396,12 @@ h4.form-previews-heading {
   width: 48%;
 }
 .card-message {
+  height: 64%;
+  left: 6%;
+  top: 12%;
+  width: 45%;
+}
+.card-message span {
   font-size: 36px;
   left: 6%;
   top: 15%;

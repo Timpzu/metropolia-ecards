@@ -55,7 +55,8 @@
             <label for="freceiver">Vastaanottaja</label>
             <input id="freceiver" type="text" name="receiver" required="required" maxlength="64">
             <label for="fmessage">Viesti</label>
-            <textarea id="fmessage" type="text" name="message" required="required" maxlength="72"></textarea>
+            <textarea id="fmessage" type="text" name="message" required="required" maxlength="140" aria-describedby="textarea-info-1"></textarea>
+            <span class="textarea-info" id="textarea-info-1">Salittu merkkimäärä: 140</span>
             <section id="form-previews-1" class="grid-container form-previews" aria-aria-labelledby="animation-group-heading">
               <h4 id="form-previews-heading-1" class="form-previews-heading">Valitse etupuolelle tuleva animaatio:</h4>
               <?php
@@ -76,9 +77,11 @@
         <section class="input-preview" aria-hidden="true">
           <div class="input-preview-wrapper">
             <div class="input-preview-content">
-              <span id="preview-input-sender"></span>
-              <span id="preview-input-receiver"></span>
-              <span id="preview-input-message"></span>
+              <span class="input-preview-instance" id="preview-input-sender"></span>
+              <span class="input-preview-instance" id="preview-input-receiver"></span>
+              <div class="input-preview-instance" id="textfillElem">
+                <span id="preview-input-message"></span>
+              </div>
               <figure>
                 <figcaption>Esikatselu</figcaption>
                 <img alt="Joulutervehdykseen tulevan kortin tausta" src="public/img/endpic2611.jpg" width="100%" />
@@ -118,6 +121,7 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <script src="public/js/jquery.textfill.js"></script>
     <script src="public/js/lity.min.js"></script>
     <script src="public/js/submit.js"></script>
     <script type="text/javascript">
@@ -129,6 +133,9 @@
       });
       $('#fmessage').keyup(function() {
         $('#preview-input-message').html(this.value);
+        $('#textfillElem').textfill({
+          maxFontPixels: 22
+        });
       });
 
       $('.card-preview input').on('change', function() {
