@@ -16,7 +16,7 @@
 
   $user = phpCAS::getUser();
 
-  $sql = "SELECT * FROM cards INNER JOIN animations ON cards.anim_id = animations.anim_id WHERE user='$user'";
+  $sql = "SELECT * FROM cards INNER JOIN animations ON cards.anim_id = animations.anim_id WHERE user='$user' ORDER BY cards.id DESC";
   $result = $mysqli->query($sql);
 
   function template( $file, $args ){
@@ -38,21 +38,28 @@
 ?>
 <!DOCTYPE html>
 <html lang="fi">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="description" content="Kustomoi Metropolian graafisen suunnittelun opiskelijoiden suunnittelemat ja toteuttamat joulutervehdysanimaatiot yhteistyökumppaneillesi ja ystävillesi tällä alustalla.">
-    <title>Etusivu | Metropolian joulutervehdys 2018</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
-    <link href="public/css/lity.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="public/css/styles.css" type="text/css">
-  </head>
-  <body>
-    <div class="wrapper">
-      <main class="grid-container">
-        <section class="introductory-text-block">
-          <h1>Metropolian joulutervehdys 2018</h1>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description"
+    content="Kustomoi Metropolian graafisen suunnittelun opiskelijoiden suunnittelemat ja toteuttamat joulutervehdysanimaatiot yhteistyökumppaneillesi ja ystävillesi tällä alustalla.">
+  <title>Etusivu | Metropolian joulutervehdys 2018</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
+  <link href="public/css/lity.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/styles.css" type="text/css">
+</head>
+
+<body>
+  <div class="wrapper wrapper_main">
+    <div class="content">
+      <header>
+        <img src="public/img/metropolia_m_orange.svg" alt="Metropolia Ammattikorkeakoulun logo" height="132">
+      </header>
+      <main>
+        <section aria-labelledby="intro-heading" class="introduction">
+          <h1 id="intro-heading">Metropolian joulutervehdys</h1>
           <p>Kustomoi Metropolian graafisen suunnittelun opiskelijoiden
             suunnittelemat ja toteuttamat joulutervehdysanimaatiot
             yhteistyökumppaneillesi ja ystävillesi tällä alustalla.</p>
@@ -62,43 +69,49 @@
           <p>Kustomoinnin jälkeen voit kopioida yksilöllisen nettiosoitteen ja
             lähettää sen sähköpostilla tai jakaa suoraan sosiaalisen median kanaviisi.</p>
         </section>
-        <div class="grid-placeholder"></div>
-        <h2 class="gallery-heading">Tarkastele tekemiäsi kortteja</h2>
-        <div class="gallery-button-container">
-          <a href="form.php" class="gallery-button">
-            <span>Luo uusi kortti</span>
-          </a>
-        </div>
-        <?php
-          $file = __DIR__ . '/templates/row-template.php';
+        <section class="gallery" aria-labelledby="gallery-heading">
+          <h2 id="gallery-heading">Tarkastele tekemiäsi kortteja</h2>
+          <div class="grid-container">
+            <div class="new-button-container">
+              <div class="new-button-content">
+                <a href="form.php" class="new-button">
+                  <img alt="" src="public/img/icons/add_icon.svg" alt="" height="56px">
+                  <span>Luo uusi kortti</span>
+                </a>
+              </div>
+            </div>
+            <?php
+                $file = __DIR__ . '/templates/row-template.php';
 
-          $output = '';
+                $output = '';
 
-          foreach ( $result as $row ){
-            $output.= template( $file, $row );
-          }
+                foreach ( $result as $row ){
+                  $output.= template( $file, $row );
+                }
 
-          print $output;
-        ?>
+                print $output;
+              ?>
+          </div>
+          <section>
       </main>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="public/js/lity.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        if($('body').find('.card-preview').length === 0) {
-          $('.gallery-button').css('margin-top', '0');
-          $('.gallery-heading').css('display', 'none');
-          $('.gallery-heading').attr('aria-hidden', 'true');
-        }
-      });
-      $('.card-url-copy').click(function() {
-        var x = $(this).prev('.card-url');
-        console.log(x);
-        x.focus();
-        x.select();
-        document.execCommand("copy");
-      });
-    </script>
-  </body>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="public/js/lity.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if ($('body').find('.preview').length === 0) {
+        $('.new-button').css('margin-top', '0');
+      }
+    });
+    $('.copy-url-button').click(function () {
+      var x = $(this).prev('.link-url');
+      console.log(x);
+      x.focus();
+      x.select();
+      document.execCommand("copy");
+    });
+  </script>
+</body>
+
 </html>

@@ -1,7 +1,7 @@
 <?php
 $db_host = 'localhost';
-$db_username = 'admin';
-$db_password = 'admin';
+$db_username = 'root';
+$db_password = 'root';
 $db_database = 'metropolia_christmas';
 
 // Create connection

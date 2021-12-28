@@ -1,18 +1,13 @@
 <?php $url = reset(explode('/index.php',curPageURL())) . '/greeting.php?ref=' . $ref; ?>
-<article class="card-preview">
-  <h3><?php print $receiver; ?></h3>
-  <a class="card-preview-thumbnail" href="<?php echo $url ?>" data-lity data-lity-desc="">
-    <p class="gallery-thumbnail-icon">Klikkaa esikatsellaksesi</p>
-    <img src="public/img/<?php echo $filename ?>.jpg" width="100%"/>
+<article class="preview">
+  <h3>Saaja: <?php print $receiver; ?></h3>
+  <a class="preview-thumbnail" href="<?php echo $url ?>" data-lity data-lity-desc="">
+    <p class="preview_label">Klikkaa esikatsellaksesi</p>
+    <img src="public/img/thumbnail/<?php echo $filename ?>.jpg" width="100%" />
   </a>
-  <div class="shareable-link-container">
-    <input class="card-url" type="text" value="<?php echo $url; ?>" readonly>
-    <button class="card-url-copy">Kopioi</button>
+  <div class="share-link-container">
+    <label for="link-url-<?php echo $id ?>" class="sr-only">Kopioitava linkki</label>
+    <input id="link-url-<?php echo $id ?>" class="link-url" type="text" value="<?php echo $url; ?>" readonly>
+    <button class="copy-url-button">Kopioi</button>
   </div>
-  <!-- <div class="gallery-some-icons">
-    <span>Jaa:</span>
-    <a href="#">Facebook,</a>
-    <a href="#">Twitter,</a>
-    <a href="#">LinkedIn</a>
-  </div> -->
 </article>
