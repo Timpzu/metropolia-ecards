@@ -29,7 +29,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Joulutervehdys ystävältäsi | Metropolian joulutervehdys</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Satisfy" rel="stylesheet">
   <link rel="stylesheet" href="public/css/normalize.css" type="text/css">
   <link rel="stylesheet" href="public/css/styles.css" type="text/css">
@@ -51,7 +53,7 @@
         <h2 id="greeting-card-heading" class="sr-only">Digitaalinen joulutervehdys ja animaatio</h2>
         <div id="flip-inner-1" class="flip-inner is-paused">
           <div class="flip-front">
-            <video id="animation-1" width="100%" onended="revealBackside()" controls>
+            <video id="animation-1" width="100%" onended="revealBackside()" controls playsinline>
               <source src="public/video/<?php echo $row['filename'] ?>.mp4" type="video/mp4">
             </video>
           </div>
