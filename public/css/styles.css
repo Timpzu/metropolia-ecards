@@ -463,7 +463,7 @@ p.preview_label {
   width: 45%;
 }
 
-.greeting-card-message p {
+.greeting-card-message {
   font-size: 2em;
   left: 6%;
   margin: 0;
@@ -509,7 +509,7 @@ p.preview_label {
   width: 50%;
 }
 
-.input-preview-content .input-message-preview p {
+.input-preview-content .input-message-preview span {
   font-size: 1.25em;
 }
 

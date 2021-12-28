@@ -89,9 +89,9 @@
               <div class="input-preview-content">
                 <p class="input-sender-preview" id="input-sender-preview-1"></p>
                 <p class="input-receiver-preview" id="input-receiver-preview-1"></p>
-                <div class="input-message-preview" id="textfillElem">
-                  <p id="input-message-preview-1"></p>
-                </div>
+                <p class="input-message-preview" id="textfillElem">
+                  <span id="input-message-preview-1"></span>
+                </p>
                 <figure>
                   <img alt="" src="public/img/endpic2611.jpg" width="100%" />
                   <!-- <figcaption>Esikatselu</figcaption> -->

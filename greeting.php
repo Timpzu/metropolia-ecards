@@ -63,9 +63,9 @@
               <img src="public/img/endpic2611.jpg" alt="" width="100%" height="auto">
               <p class="greeting-card-receiver"><span
                   class="sr-only">Vastaanottaja:&nbsp;</span><?php echo $row['receiver']; ?></p>
-              <div class="greeting-card-message" id="textfillElem">
-                <p><span class="sr-only">Viesti:&nbsp;</span><?php echo $row['message']; ?></p>
-              </div>
+              <p class="greeting-card-message" id="textfillElem">
+                <span class="sr-only">Viesti:&nbsp;</span><?php echo $row['message']; ?>
+              </p>
               <p class="greeting-card-sender"><span class="sr-only">Lähettäjä:&nbsp;</span><?php echo $row['sender']; ?>
               </p>
             </div>
